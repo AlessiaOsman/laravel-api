@@ -37,7 +37,7 @@ class Project extends Model
         return $this->belongsToMany(Technology::class);
     }
 
-    public function image () {
+    public function image ():Attribute {
         return Attribute::make(fn ($value) => $value && app('request')->is('api/*') ? url('storage/' . $value) : $value);
     }
 }
